@@ -8,11 +8,16 @@ import org.springframework.remoting.rmi.RmiServiceExporter;
 public class AppConfig {
 
     @Bean
-    public RmiServiceExporter rmiServiceExporter() throws Exception {
+    public CalculatorService calculatorService() {
+        return new CalculatorServiceImpl();
+    }
+
+    @Bean
+    public RmiServiceExporter rmiServiceExporter() {
         RmiServiceExporter exporter = new RmiServiceExporter();
         exporter.setServiceName("CalculatorService");
         exporter.setServiceInterface(CalculatorService.class);
-        exporter.setService(new CalculatorServiceImpl());
+        exporter.setService(calculatorService());
         exporter.setRegistryPort(1099);
         return exporter;
     }

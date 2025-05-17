@@ -9,6 +9,7 @@ public class Server {
             new AnnotationConfigApplicationContext(AppConfig.class);
         
         System.out.println("Spring RMI Server started");
+        System.out.println("Service registered on port 1099 with name 'CalculatorService'");
         System.out.println("Press Ctrl+C to stop the server");
     }
 }
